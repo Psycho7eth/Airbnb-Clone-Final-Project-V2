@@ -1,5 +1,3 @@
-import React from 'react';
-
 const LinksHome = () => {
   return (
     <div className="grid grid-cols-3 gap-4 w-3/4 m-auto py-8">

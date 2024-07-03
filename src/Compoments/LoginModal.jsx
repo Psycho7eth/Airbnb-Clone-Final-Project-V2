@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import { useAuth } from '../context/AuthContext.jsx';
-import { FaFacebook, FaGoogle, FaApple } from 'react-icons/fa';
-import { AiOutlineClose } from 'react-icons/ai';
 
-const Login = () => {
+import { useState } from 'react';
+import { useAuth } from '../context/AuthContext';
+import { AiOutlineClose } from 'react-icons/ai';
+import { FaFacebook, FaGoogle, FaApple } from 'react-icons/fa';
+
+const LoginModal = ({ onClose }) => {
+  const { login } = useAuth();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,7 +17,10 @@ const Login = () => {
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
       <div className="bg-white p-8 rounded-lg max-w-sm w-full relative">
-        <button className="absolute top-3 right-3 text-xl">
+        <button onClick={(e) => {
+  e.stopPropagation();
+  onClose();
+}}  className="absolute top-3 right-3 text-xl">
           <AiOutlineClose />
         </button>
         <h2 className="text-xl font-bold mb-4">Bienvenue sur Airbnb</h2>
@@ -60,4 +64,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginModal;

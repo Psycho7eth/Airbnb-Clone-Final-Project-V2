@@ -8,7 +8,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 const Card = ({ city, country, dates, price_per_night, rating, owner, images }) => {
   return (
     <div className="max-w  overflow-hidden cursor-pointer relative">
-      <div className="text-white absolute top-5 right-5 z-50 text-xl"><FaRegHeart/> </div>
+      <div className="text-white absolute top-5 right-5 z-45 text-xl"><FaRegHeart/> </div>
       <Carousel showStatus={false} showIndicators={true} showThumbs={false} infiniteLoop={true} autoPlay={false}>
         {images.map((image, index) => (
           <div key={index}>
